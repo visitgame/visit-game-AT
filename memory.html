@@ -1,0 +1,228 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Memory Game</title>
+<meta name="description" content="Jeu du Memory : Reconstruire les paires d'images identiques jusqu'à la dernière" />
+<meta name="robots" content="index,follow" />
+<meta http-equiv="content-language" content="fr" />
+<link href='styles/mef.css' rel='stylesheet' type='text/css' />
+
+<script>
+    function displayIns(){
+msg=".\n";
+msg+=".\n";
+msg+=".";
+alert(msg);
+} 
+</script>
+</head>
+</head>
+<body>
+    <header >
+         <header>
+        <nav>
+        <div class="nav-item nav-large">
+            <a class="nav-link" href="index.html">
+                <span class="nav-text">Inventary</span>
+            </a>
+        </div>
+        </nav>
+    </header>
+    </header>
+
+	<div class="div_conteneur_parent">
+		<div class="div_conteneur_page">
+			
+			
+			<div class="div_int_page">
+			
+			<div style="width:100%;display:block;text-align:center;">
+			</div>
+			
+			<div class="div_saut_ligne" style="height:30px;">
+			</div>						
+			
+			<div style="float:left;width:10%;height:40px;"></div>
+			<div style="float:left;width:80%;height:40px;text-align:center;">
+			<div style="width:auto;display:block;height:auto;text-align:center;background-color:#ccccff;border:#7030a0 1px solid;padding-top:12px;box-shadow: 6px 6px 0px #aaa;color:#7030a0;">
+			<h1>Memorygame : Find the pairs</h1>
+			</div>
+			</div>
+					
+			<div style="float:left;width:10%;height:40px;"></div>
+			
+			<div class="div_saut_ligne">
+			</div>		
+			
+			<div style="width:100%;height:auto;text-align:center;">
+						
+			<div style="width:800px;display:inline-block;" id="conteneur">
+			
+				<div class="centre">
+					<div class="titre_centre" id="titre" style="text-align:center;padding-left:10px;">
+                    Click on the cases to find the pairs
+					</div>	
+				</div>
+			
+				<div id="liste">
+					<div id="grille">
+					<div class="case" id="case0"></div>
+					<div class="case" id="case1"></div>
+					<div class="case" id="case2"></div>
+					<div class="case" id="case3"></div>
+					
+					<div class="case" id="case4"></div>
+					<div class="case" id="case5"></div>
+					<div class="case" id="case6"></div>
+					<div class="case" id="case7"></div>
+					
+					<div class="case" id="case8"></div>
+					<div class="case" id="case9"></div>
+					<div class="case" id="case10"></div>
+					<div class="case" id="case11"></div>
+					
+					<div class="case" id="case12"></div>
+					<div class="case" id="case13"></div>
+					<div class="case" id="case14"></div>
+					<div class="case" id="case15"></div>
+					</div>
+					<span style="color:#000000; font-weight: bold;">You have 3 minutes,<br />either</span> <span style="color:#CC3300;font-weight: bold;">180 secondes :</span><br /><br /><br />
+					<span style="font-size:18px;font-weight:normal;color:#000000; font-weight: bold;">Your score :<br />
+					<div id="scrore" style="font-size:30px;"><strong>10</strong>/10</div>
+					<br /><br />
+					<div id="temps" style="font-size:20px;color:#CC3300;font-weight: bold;"></div><br />
+					<div id="scrore" style="font-size:30px;color:#CC3300;font-weight: bold;"><strong>10</strong>/10</div>
+					<br /><br />
+					<div id="temps" style="font-size:20px;"></div><br />
+					<input type="button" class="btn" value="New game" onClick="window.location.reload()"/>
+                    <input type="button" class="btn"  value="Rules" onclick="displayIns()">
+					</span>
+					</div>
+					</span>
+				</div>
+				
+									
+				
+			</div>
+			
+			</div>
+
+			<div class="div_saut_ligne" style="height:50px;">
+			</div>	
+			
+			</div>
+		</div>
+	
+	</div>
+	
+</body>
+<script type="text/javascript" language="javascript">
+
+	var nb_clics = 0;
+	var mini1 = ""; var mini2="";
+	var case1 = ""; var case2="";
+	var img_ok = 0; var nb_erreurs=0;
+	var le_score=0;
+	var depart = false; var temps_debut = new Date().getTime();
+
+	var attente = setTimeout(function()
+	{
+		for (var i=0;i<16;i++)
+		{
+			document.getElementById('img' + i).src = "mini/miniz.png";
+		}
+		depart = true;
+	},2000);
+		
+	
+	generation();
+	
+	function generation()
+	{
+		var nb_alea; var nb_img="";
+		var test = true; var chaine = "";
+		
+		for (var i=0;i<16;i++)
+		{
+			while (test==true)
+			{
+				nb_alea = Math.floor(Math.random()*16) + 1; //Pour génération dans les 16 cases
+				if(chaine.indexOf("-" + nb_alea + "-")>-1)
+					nb_alea = Math.floor(Math.random()*16) + 1;
+				else
+				{
+					nb_img = Math.floor((nb_alea+1)/2); //8 paires pour 16 places ==> 2 générations différentes par image
+					document.getElementById('case' + i).innerHTML = "<img style='cursor:pointer;' id='img" + i + "' src='https://virtual-visit-game.go.yj.fr/mini/mini&quot;&#32;+&#32;nb_img&#32;+&#32;&quot;.png' onClick='verifier(\"img" + i + "\", \"mini" + nb_img + "\")' alt='' />";
+					chaine += "-" + nb_alea + "-";
+					test=false;
+				}			
+			}
+			test=true;			
+		}
+	}
+	
+	function verifier(limg,source)
+	{
+		if(depart==true)
+		{
+			nb_clics++;
+			document.getElementById(limg).src = "mini/" + source + ".png";
+			if(nb_clics == 1)
+			{
+				mini1=source;
+				case1 = limg;
+			}
+			else
+			{
+				mini2=source;
+				case2 = limg;
+
+				if(case1!=case2)
+			{
+			depart=false;
+			if(mini1 != mini2)
+			{
+				var attente = setTimeout(function()
+				{
+					document.getElementById(case1).src = "mini/miniz.png";
+					document.getElementById(case2).src = "mini/miniz.png";
+					depart=true;
+					nb_clics=0;
+					nb_erreurs ++;
+					if(nb_erreurs<11) le_score = 10 - nb_erreurs;
+					document.getElementById("scrore").innerHTML = "<strong>" + le_score + "</strong>/10";
+				},1000);
+			}
+			else
+			{
+				depart=true;
+				nb_clics=0;
+				img_ok += 2;
+				if(img_ok==16)
+				{
+					var dif_temps = Math.floor((new Date().getTime() - temps_debut)/1000);
+					document.getElementById("scrore").innerHTML ="<strong>" + le_score + "</strong>/10";
+					document.getElementById("temps").innerHTML = "You put<strong>" + dif_temps + "</strong> secondes <br/> the code is : '' ";
+				}
+				if(dif_temps > 180)
+				{
+					document.getElementById("temps").innerHTML = "The allotted time has passed, you have lost!";
+					depart=false;
+				}
+			}
+		}
+		else
+		{
+			if(nb_clics==2) nb_clics=1;
+		}
+	}
+}
+}
+
+	
+	
+	
+	
+</script>
+</html>
+	
