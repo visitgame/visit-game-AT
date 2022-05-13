@@ -1,0 +1,115 @@
+@media (max-width: 760px)
+
+header .nav-text {
+    display: block;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+}
+* {
+    -webkit-tap-highlight-color: transparent;
+    color: inherit;
+    cursor: inherit;
+}
+header .nav-link {
+    cursor: pointer;
+    opacity: .8;
+    padding: 0 16px;
+    transition: opacity .2s,background .2s;
+}
+header #logo, header .nav-link {
+    display: block;
+    font-size: 18px;
+    height: 44px;
+    line-height: 44px;
+}
+@media (max-width: 600px)
+header .nav-large {
+    display: none!important;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+@media (max-width: 600px)
+header .nav-item>.nav-link {
+    padding: 4px 12px;
+}
+@media (max-width: 760px)
+header .nav-item>.nav-link {
+    height: 36px;
+    padding: 4px 8px;
+}
+@media (max-width: 840px)
+header .nav-link {
+    padding: 0 12px;
+}
+a, a:hover {
+    text-decoration: none;
+}
+a {
+    cursor: pointer;
+}
+user agent stylesheet
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+a, button {
+    touch-action: manipulation;
+}
+header {
+    background: #000000;
+    box-shadow: 0 0 12px rgb(0 0 0 / 25%);
+    color: #fff;
+    display: flex;
+    height: 44px;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    width: 100%;
+    z-index: 450;
+}
+html {
+    background-color: #fff;
+    cursor: default;
+    font-family: Source Sans Pro,Helvetica,sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    min-width: 320px;
+    touch-action: manipulation;
+}
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    font-size: 100%;
+}
+body {
+    margin:0;
+    padding:0;
+    //background-image:url('https://augustin-thierry.fr/wp-content/uploads/2018/07/MEI.jpg');
+    backgroud-repeat:no-repeat;
+    background-size: cover;
+    min-width: 100%;
+    min-height: 100%;
+    text-align: center;
+
+}
+#Jeu {
+  display: inline-block;
+  background-color: SteelBlue;
+  margin: 0 auto;
+  padding: 10px;
+}
+#Jeu td {
+  width: 100px;
+  height: 100px;
+  font-weight: bold;
+  font-size: 50px;
+  margin: 5px;
+  float:left;
+}

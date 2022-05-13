@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Snake Game">
+  <title>Snake Game</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+  <link rel="stylesheet" href="style.css">
+<script>
+    function displayIns(){
+msg=".\n";
+msg+=".\n";
+msg+=".";
+alert(msg);
+} 
+</script>
+</head>
+<body>
+  <div id="app" class="app">
+    <div class="start-screen animated bounceIn">
+    <div class="options">
+        <h3>Snake Game</h3>
+        <p class="end-score"></p>
+    </div>
+          <button data-difficulty="75" class="play-btn">Play</button>
+            <div>
+                    <input type="button" value="Instructions" position='absolute'; onclick="displayIns()">
+            </div>
+        
+    
+    </div>
+
+    <canvas></canvas>
+
+    <div class="score">0</div>
+  </div>
+
+  <script src="snake.js"></script>
+</body>
+</html>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>mastermind</title>
+<meta charset="UTF-8">
+<meta name = "description" content = "mastermind"/>
+<meta name = "keywords" content = "mastermind en ligne,mastermind en javascript,javascript"/>
+
+<style type="text/css">
+
+body{
+	background-color:#9CB7D4;	
+}
+
+.igm{
+	border-radius:17px;
+	cursor:move;
+	height:25px;
+	width:25px;
+}
+
+
+.plateau{
+	transform:perspective(1500px) rotateX(55deg)rotateZ(-2deg);
+	border-radius:8px;
+	height:581px;
+	width:304px;
+	background-size: 100% 100%;
+	background-image:url("image/game.jpg");
+	box-shadow: 0 15px 15px #111;
+}
+
+.tbrendu{
+	position: relative;
+	margin-right: 39px;
+	margin-top: 18px;
+	display:inline-block;
+	float:right;
+	transform:perspective(800px) rotateX(-0deg)translateZ(15px);
+}
+
+
+.tbrendu td div{
+	border-radius:17px;
+	background-size: 100%;
+	height:27px;
+	width:27px;
+
+}
+
+.tbrendu td{
+	border:solid 4px rgba(1,1,1,0);
+	width:20px;
+}
+
+.tbaide{
+
+	position: relative;
+	display:inline-block;
+	margin-left: 54px;
+	margin-top: 15px;
+	float:left;
+	font-size:0;
+}
+
+.tbaide td{
+
+	height:38px;
+	width:40px;
+	margin: 0px;
+	padding:0px;
+}
+
+.tbaide tr{
+
+	border-style: none;
+}
+
+.tbaide td div{
+
+	display:inline-block;
+	background-size: 100% 100%;
+	height:12px;
+	width:12px;
+	margin: 3px;
+	margin-top:0px;
+	padding:0px;
+	border-radius:5px;
+	border-style: none;
+}
+
+.ctn_pion{
+	position:absolute;
+	left:10%;
+	top:50%;
+	background-image:url("image/texture.jpg");
+	padding:10px;
+	transform:perspective(500px) rotateX(30deg) rotateZ(-2deg);
+
+	box-shadow: 0 5px 5px #111;
+	z-index:1;
+}
+
+
+.pion{
+	background-size: 50% 39px;
+	background-image:url("image/mm.jpg");
+}
+
+.ctn_pion button{
+
+	background-image:url("image/btn.jpg");
+	color:white;
+	border:solid 3px #59160C;
+	margin:auto;
+	display:block;
+	margin-top:10px
+}
+
+
+.cache{
+	display:inline-block;
+	margin-top:5px;
+	margin-left:110px;
+	height:50px;
+	width:150px;
+	background-size: 100% 100%;
+	background-image:url("image/cache.jpg");
+	opacity:1;
+}
+
+#chute{
+
+	height:30px;
+	width:150px;
+	margin-left:10px;
+	margin-top:5px;
+	clear:both;
+}
+
+#chute div{
+
+	height:30px;
+	width:30px;
+	background-size: 100% 100%;
+	display:inline-block;
+	margin:2px;
+}
+
+.ctn3d{
+
+	height:581px;
+	width:304px;
+	margin-left:40%;
+}
+
+.face{
+	width:355px;
+	height:30px;
+	background-image:url("image/texture.jpg");
+	margin-top:-86px;
+	margin-left:-14px;
+	transform:perspective(1500px) rotateX(-35deg)rotateZ(-1.5deg)translateZ(-20px);
+	box-shadow: 0 5px 5px #111;
+}
+
+.dessus{
+	width:2400px;
+	height:1600px;
+	position:absolute;
+	z-index:-1;
+	background-image:url("image/dessus2.png");
+	background-size: 100% 100%;
+	border:none;
+	margin-top:-1106px;
+	margin-left:-14px;
+	transform:perspective(1500px) rotateX(65deg)rotateZ(2deg);
+}
+
+</style>
+
+<script type="text/javascript">
+
+function kastermind(){
+
+this.tbcoul=['red','yellow','green','blue','orange','white','purple','fuchsia'];
+
+this.colone=0;
+this.ligne=0;
+this.tb_tirage=[];
+
+this.init();
+
+}
+
+kastermind.prototype.controle=function(){
+	
+	if(this.ligne<=11){
+	
+	var bon=0;
+	var bonne_place=0;
+
+	var tb_pose=["","","",""];
+
+	var tb_el=this.tbrendu;
+
+	var cnc=tb_el.rows.length-this.ligne-1;
+	
+	for(var i=0;i<4;i++){
+
+		if(tb_el.rows[cnc].cells[i].firstChild.style.backgroundImage!=""){
+
+			tb_pose[i]=this.tbcoul[tb_el.rows[cnc].cells[i].firstChild.getAttribute("rel")];
+		}
+		else{
+			return false;
+		}
+	}
+
+	this.ligne++;
+	this.colone=0;
+
+	for(var i=0;i<this.tb_tirage.length;i++){
+
+		if(this.tb_tirage[i]==tb_pose[i]){
+			
+			bonne_place++;
+		}
+	}
+
+	for(var i=0;i<this.tb_tirage.length;i++){
+
+		for(var j=0;j<tb_pose.length;j++){
+
+			if(this.tb_tirage[i]==tb_pose[j]){
+				tb_pose[j]="";
+				bon++;
+				break;
+			}
+		}
+	}
+
+	var mauvaise_place=bon-bonne_place;
+
+	for(var i=0;i<bon;i++){
+
+		if(mauvaise_place>0){
+			this.tbaide.rows[cnc].cells[0].childNodes[i].style.backgroundImage='url("image/blanc.png")';
+			mauvaise_place--;
+		}
+		else{
+			this.tbaide.rows[cnc].cells[0].childNodes[i].style.backgroundImage='url("image/noir.png")';
+		}
+
+	}
+
+	if(bonne_place==4){
+
+		document.getElementById("chute").style.opacity=1;
+		this.tb_tirage.length = 0;
+		this.gagne.play();
+	}
+	
+	if(this.ligne>=12 && bonne_place!=4){
+		
+		document.getElementById("chute").style.opacity=1;
+		this.perdu.play();
+	}
+	
+	}
+},
+
+kastermind.prototype.nouveau=function(){
+
+	var all=this.tbaide.getElementsByTagName("div");
+	var all2=this.tbrendu.getElementsByTagName("div");
+
+	for(var i=0;i<all.length;i++){
+
+		all[i].style.backgroundImage="";
+	}
+			
+	for(var i=0;i<all2.length;i++){
+
+		all2[i].style.backgroundImage="";
+	}
+	
+	this.colone=0;
+	this.ligne=0;
+	this.tb_tirage.length = 0;
+	document.getElementById("chute").style.opacity=0;
+	this.tirage();
+},
+
+kastermind.prototype.tirage=function(){
+
+	for(var i=0;i<4;i++){
+
+		var ch=Math.round(Math.random() * (this.tbcoul.length-1));
+
+		this.tb_tirage.push(this.tbcoul[ch]);
+		
+		document.getElementById("chute").childNodes[i].style.backgroundImage='url("image/'+this.tbcoul[ch]+'.png")';
+	}
+}
+
+kastermind.prototype.allowDrop=function(ev) {
+    ev.preventDefault();
+}
+
+kastermind.prototype.drag=function(ev) {
+    ev.dataTransfer.setData("text", ev.target.getAttribute("rel"));
+	var img = new Image();
+	img.src = ev.currentTarget.src;
+	ev.dataTransfer.setDragImage(img, 15, 15);
+	ev.dataTransfer.effectAllowed = "move";
+},
+
+kastermind.prototype.drop=function(ev) {
+    
+	ev.preventDefault();
+    var tb_el=this.tbrendu;
+	var cnc=tb_el.rows.length-this.ligne-1;
+
+	if(ev.target.parentNode.parentNode==tb_el.rows[cnc]){
+	
+		var data = ev.dataTransfer.getData("text");
+		ev.target.style.backgroundImage="url(image/"+this.tbcoul[data]+".png"+")";
+		ev.target.setAttribute("rel",data);
+	}
+    
+},
+
+
+kastermind.prototype.init=function(){
+
+		var dvg=document.createElement("div");
+		dvg.className="ctn_pion";
+
+		var tb=document.createElement("table");
+		tb.className="pion";
+		var el=tb.insertRow(0)
+
+	for(var i=0;i<this.tbcoul.length;i++){
+
+		var cel=el.insertCell(0);
+
+		var dv=document.createElement("img");
+		dv.className="igm";
+
+		dv.src="image/"+this.tbcoul[i]+".png";
+		dv.setAttribute("draggable","true");
+		dv.setAttribute("rel",i);
+		dv.ondragstart=this.drag.bind(this);
+
+		cel.appendChild(dv);
+	}
+
+	this.tbaide=document.createElement("table");
+	this.tbaide.className="tbaide";
+	this.tbrendu=document.createElement("table");
+	this.tbrendu.className="tbrendu";
+		
+	for(var i=0;i<12;i++){
+
+		var wor=this.tbrendu.insertRow(0);
+		var wora=this.tbaide.insertRow(0);
+		var cela=wora.insertCell();
+
+		for(var j=0;j<4;j++){
+
+		var cel=wor.insertCell();
+		var dv=document.createElement("div");
+		dv.ondrop=this.drop.bind(this);
+		dv.ondragover=this.allowDrop.bind(this);
+		cel.appendChild(dv);
+
+		var dv=document.createElement("div");
+		cela.appendChild(dv);	
+		}
+	}
+	
+	document.querySelector(".plateau").appendChild(this.tbaide);
+	document.querySelector(".plateau").appendChild(this.tbrendu);
+	
+	dvg.appendChild(tb);
+	
+	var btn=document.createElement("button");
+	btn.onclick=this.controle.bind(this);
+	btn.style.float="left";
+	btn.textContent="valider";
+	dvg.appendChild(btn);
+	
+	var btn=document.createElement("button");
+	btn.onclick=this.nouveau.bind(this);
+	btn.style.float="right";
+	btn.textContent="nouveau";
+	dvg.appendChild(btn);
+
+	document.body.appendChild(dvg);
+	
+	this.gagne=new Audio("image/gagne.mp3")
+	this.perdu=new Audio("image/perdu.mp3")
+	
+	this.nouveau();
+}
+
+onload=function(){new kastermind()}
+
+</script>
+
+</head>
+<body>
+
+<div class="ctn3d">
+
+<div class="plateau">
+	<div class='cache'>
+	<div id="chute"><div></div><div></div><div></div><div></div></div>
+	</div>
+</div>
+
+<div div class="face"></div>
+
+</div>
+
+<div class="dessus"></div>
+
+</body>
+</html>

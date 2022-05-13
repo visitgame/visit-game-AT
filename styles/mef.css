@@ -1,0 +1,360 @@
+@media (max-width: 760px)
+
+header .nav-text {
+    display: block;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+}
+* {
+    -webkit-tap-highlight-color: transparent;
+    color: inherit;
+    cursor: inherit;
+}
+header .nav-link {
+    cursor: pointer;
+    opacity: .8;
+    padding: 0 16px;
+    transition: opacity .2s,background .2s;
+}
+header #logo, header .nav-link {
+    display: block;
+    font-size: 18px;
+    height: 44px;
+    line-height: 44px;
+}
+@media (max-width: 600px)
+header .nav-large {
+    display: none!important;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+@media (max-width: 600px)
+header .nav-item>.nav-link {
+    padding: 4px 12px;
+}
+@media (max-width: 760px)
+header .nav-item>.nav-link {
+    height: 36px;
+    padding: 4px 8px;
+}
+@media (max-width: 840px)
+header .nav-link {
+    padding: 0 12px;
+}
+header {
+    background: #000000;
+    box-shadow: 0 0 12px rgb(0 0 0 / 25%);
+    color: #fff;
+    display: flex;
+    height: 44px;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    width: 100%;
+    z-index: 450;
+}
+a, a:hover {
+    text-decoration: none;
+}
+a {
+    cursor: pointer;
+}
+user agent stylesheet
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+}
+*{
+	margin:0px;
+	padding:0px;
+}
+body {
+	margin:0px;
+	padding:0px;
+	/*background:#FFFFFF;
+	background-repeat:repeat-x;*/
+	width:100%;
+	font-family:Calibri;
+	font-size:13px;
+	color:#000000;
+	background-color:#EDEEEE;
+	background-image:url(https://augustin-thierry.fr/wp-content/uploads/2021/01/vinci-scaled.jpg);
+    background-repeat:no-repeat;
+    background-size: cover;
+    min-width: 100%;
+    min-height: 100%;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+	
+}
+
+h1
+{
+	font-size:30px;
+	font-weight:bold;
+	margin-bottom:10px;
+}
+
+#grille
+{
+	width:300px;
+	float:left;
+	height:300px;
+	text-align:center;
+	border:#333 1px solid;
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;	
+	background-color:#CCCCCC;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:10px;
+	margin-bottom:20px;
+	margin-left:60px;
+}
+
+a:link {
+    color:#333;
+	text-decoration:none;
+}
+a:visited {
+    color:#EDEEEE;
+	text-decoration:none;
+}
+a:hover {
+    color:#EDEEEE;
+	text-decoration:none;
+}
+a:active {
+    color:#EDEEEE;
+	text-decoration:none;
+}
+
+.flux
+{
+	padding:0px;
+	margin:0px;
+	width:auto;
+}
+
+.flux:hover
+{
+	color:#EDEEEE;
+}
+
+#identifiant
+{
+	width:270px;
+	height:30px;
+	/*Coins arrondis*/
+	border:#333 1px solid;
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 5px;
+	text-align:left;
+	padding-left:5px;
+	font-size:18px;
+	background-color:#fff;
+	color:#7030a0;
+	font-weight:bold;
+	text-decoration:none;
+	margin-top:-5px;
+	margin:20px;
+	letter-spacing:2px;
+	text-align:center;	
+}
+
+#motPasse
+{
+	width:270px;
+	height:30px;
+	/*Coins arrondis*/
+	border:#333 1px solid;
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 5px;
+	text-align:left;
+	padding-left:5px;
+	font-size:26px;
+	background-color:#fff;
+	color:#7030a0;
+	font-weight:bold;
+	text-decoration:none;
+	margin-top:-5px;
+	margin:20px;
+	letter-spacing:2px;
+	text-align:center;
+}
+
+.bouton
+{
+	 width:270px;
+	 height:30px;
+	 font-weight:bold;
+     color: #EDEEEE;
+	 font-weight:bold;
+	border:#333 1px solid;
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 5px;	 
+     background: #444;
+     background: linear-gradient( #555, #2C2C2C);
+	 text-shadow: 0px 1px 0px white;
+	 text-shadow: 0px 1px 0px rgba( 255, 255, 255, 0.4);
+     box-shadow: 0 0 10px rgba( 0, 0, 0, 0.8),
+                 0 -1px 0 rgba( 255, 255, 255, 0.6);	
+	
+	box-shadow: 2px 2px 0px #aaa;
+	font-size:20px;
+	text-align:center;	
+	padding-left:0px;
+	margin:20px;
+}
+
+.bouton:hover
+{
+	cursor:pointer;
+	box-shadow: 6px 6px 0px #aaa;
+}
+
+.btn
+{
+	width:185px;
+	height:55px;
+	text-align:center;
+	padding:0px;
+	margin:0px;
+	border:#333 1px solid;
+	border-radius: 5px;
+	background: #444;
+	background: linear-gradient( #555, #2C2C2C);
+	text-shadow: 0px 1px 0px white;
+	text-shadow: 0px 1px 0px rgba( 255, 255, 255, 0.4);
+	box-shadow: 0 0 10px rgba( 0, 0, 0, 0.8),
+			 0 -1px 0 rgba( 255, 255, 255, 0.6);	
+	
+	box-shadow: 2px 2px 0px #aaa;	
+	margin:5px;
+	font-size:20px;
+	color:#ccccff;
+}
+
+.btn:hover
+{
+	cursor:pointer;
+	box-shadow: 6px 6px 0px #aaa;
+}
+
+.case
+{
+	width:66px;
+	float:left;
+	height:66px;
+	text-align:center;
+	padding:0px;
+	margin:0px;
+	border:#333 1px solid;
+	border-radius: 5px;
+     background: #CCC;
+     background: linear-gradient( #CCC, #FFF);
+	 text-shadow: 0px 1px 0px white;
+	 text-shadow: 0px 1px 0px rgba( 255, 255, 255, 0.4);
+     box-shadow: 0 0 10px rgba( 0, 0, 0, 0.8),
+                 0 -1px 0 rgba( 255, 255, 255, 0.6);	
+	
+	box-shadow: 2px 2px 0px #aaa;	
+	margin:2px;
+}
+
+.colonne
+{
+	width:730px;
+	float:left;
+	height:auto;
+	text-align:center;
+	border:#333 1px solid;
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;	
+	background-color:#EDEEEE;
+	background:rgba(100,100,100,.1);
+	color:#66666;
+	font-weight:bold;
+	font-size:20px;
+	padding-top:16px;
+	padding-bottom:10px;
+	margin-bottom:20px;
+	margin-left:40px;
+}
+
+.titre_centre
+{
+	width:720px;
+	float:left;
+	height:30px;
+	text-align:center;
+	border:#333 1px solid;
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;	
+	background-color:#ccccff;
+	border:#7030a0 1px solid;
+	color:#7030a0;
+	font-size:20px;
+	padding-left:10px;
+	padding-top:16px;
+	padding-bottom:10px;
+	margin-bottom:20px;
+	margin-left:40px;
+}
+
+.centre
+{
+	width:800px;
+	float:left;
+	text-align:center;
+}
+
+.div_conteneur_parent
+{
+	width:100%;
+	height:auto;
+	text-align:center;
+}
+
+.titre_page
+{
+	width:auto;
+	padding-top:18px;
+	height:42px;
+	font-family:Calibri;
+	color:#1414;
+	text-align:right;
+	padding-right:10px;
+}
+
+.div_saut_ligne
+{
+	width:100%;
+	height:75px;
+	display:inline-block;
+}
+
+.div_int_page
+{
+	width:100%;
+	float:left;
+	padding-left:15px;
+	padding-right:15px;
+	padding-bottom:15px;
+	padding-top:5px;
+	height:auto;
+	font-size:14px;
+	font-family:Calibri;
+	color:#666666;
+	text-align:left;
+}

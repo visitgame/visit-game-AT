@@ -1,0 +1,85 @@
+@media (max-width: 760px)
+
+header .nav-text {
+    display: block;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+}
+* {
+    -webkit-tap-highlight-color: transparent;
+    color: inherit;
+    cursor: inherit;
+}
+header .nav-link {
+    cursor: pointer;
+    opacity: .8;
+    padding: 0 16px;
+    transition: opacity .2s,background .2s;
+}
+header #logo, header .nav-link {
+    display: block;
+    font-size: 18px;
+    height: 44px;
+    line-height: 44px;
+}
+@media (max-width: 600px)
+header .nav-large {
+    display: none!important;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+@media (max-width: 600px)
+header .nav-item>.nav-link {
+    padding: 4px 12px;
+}
+@media (max-width: 760px)
+header .nav-item>.nav-link {
+    height: 36px;
+    padding: 4px 8px;
+}
+@media (max-width: 840px)
+header .nav-link {
+    padding: 0 12px;
+}
+header {
+    background: #000000;
+    box-shadow: 0 0 12px rgb(0 0 0 / 25%);
+    color: #fff;
+    display: flex;
+    height: 44px;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    width: 100%;
+    z-index: 450;
+}
+a, a:hover {
+    text-decoration: none;
+}
+a {
+    cursor: pointer;
+}
+user agent stylesheet
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+}
+*{
+	margin:0px;
+	padding:0px;
+}
+html {
+    background-color: #fff;
+    cursor: default;
+    font-family: Source Sans Pro,Helvetica,sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    min-width: 320px;
+    touch-action: manipulation;
+}
